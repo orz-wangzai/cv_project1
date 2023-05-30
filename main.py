@@ -126,12 +126,12 @@ window.bind("<<ROISELECTED>>", display_roi)
 #def filter():
 def filter_image():
     global imCrop
-    if imCrop.any():
+    if imCrop is not None:
         average_img = cv.blur(imCrop,(3,3))
         gaussian_img = cv.GaussianBlur(imCrop,(3,3),0)
         average_img = cv.cvtColor(average_img, cv.COLOR_BGR2RGB)
         gaussian_img= cv.cvtColor(gaussian_img, cv.COLOR_BGR2RGB)
-    else:
+    else :
         img = cv.imread(file_path)
         average_img = cv.blur(img, (3, 3))
         gaussian_img = cv.GaussianBlur(img, (3, 3), 0)
